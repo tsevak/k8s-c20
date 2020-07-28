@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp
+  labels:
+    env: dev
+spec:
+  selector:
+    matchLabels:
+      env: dev
+  replicas: 3
+
+  template:
+    metadata:
+      name: myapp
+      labels:
+        env: dev
+    spec:
+      containers:
+        - name: httpd
+          image: httpd
